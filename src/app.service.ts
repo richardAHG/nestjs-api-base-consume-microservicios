@@ -26,4 +26,8 @@ export class AppService {
       new CreateUserEvent(createUserDto.email),
     );
   }
+
+  getAnalisis() {
+    return this._microserviceAnalisis.send({ cmd: 'get_analitycs' }, {});
+  }
 }
