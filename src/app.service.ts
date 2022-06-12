@@ -8,6 +8,7 @@ export class AppService {
   constructor(
     @Inject('COMUNICACION')
     private readonly _microserviceComunicacion: ClientProxy,
+    @Inject('ANALISIS') private readonly _microserviceAnalisis: ClientProxy,
   ) {}
   private readonly users: any[] = [];
   getHello(): string {
@@ -17,6 +18,10 @@ export class AppService {
   createUser(createUserDto: CreateUserRequestDto) {
     this.users.push(createUserDto);
     this._microserviceComunicacion.emit(
+      'user_created',
+      new CreateUserEvent(createUserDto.email),
+    );
+    this._microserviceAnalisis.emit(
       'user_created',
       new CreateUserEvent(createUserDto.email),
     );

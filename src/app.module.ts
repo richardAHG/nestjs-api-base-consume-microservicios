@@ -10,6 +10,13 @@ import { AppService } from './app.service';
         name: 'COMUNICACION',
         transport: Transport.TCP,
       },
+      {
+        name: 'ANALISIS',
+        transport: Transport.TCP,
+        options: {
+          port: 3001,
+        },
+      },
     ]),
   ],
   controllers: [AppController],
