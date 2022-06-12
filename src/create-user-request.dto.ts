@@ -1,4 +1,4 @@
 export class CreateUserRequestDto {
-  emial: string;
+  email: string;
   password: string;
 }

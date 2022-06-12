@@ -18,7 +18,7 @@ export class AppService {
     this.users.push(createUserDto);
     this._microserviceComunicacion.emit(
       'user_created',
-      new CreateUserEvent(createUserDto.emial),
+      new CreateUserEvent(createUserDto.email),
     );
   }
 }
